@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jonathanlouis.Controller">
+    <left>
+        <TableView fx:id="publisherTable" prefHeight="200.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn prefWidth="${publisherTable.width}" text="Publishers">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <BorderPane.margin>
+                <Insets right="10.0" />
+            </BorderPane.margin>
+        </TableView>
+    </left>
+    <center>
+        <TableView fx:id="gamesTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn text="Game">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="title" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Genre">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="genre" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <BorderPane.margin>
+                <Insets right="10.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+    <right>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="170.00" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button onAction="#listPublishers" maxWidth="Infinity" mnemonicParsing="false" text="List Publishers" />
+                <Button onAction="#listGames" maxWidth="Infinity" mnemonicParsing="false" text="Show All Games" />
+                <Button onAction="#listGamesPublisher" maxWidth="Infinity" mnemonicParsing="false" text="Selected Publisher's Games" />
+                <Button onAction="#gameDescription" maxWidth="Infinity" mnemonicParsing="false" text="Game Description" />
+                <Button onAction="#showNewGameDialog" maxWidth="Infinity" mnemonicParsing="false" text="Add Game"/>
+                <Button onAction="#updateGame" maxWidth="Infinity" mnemonicParsing="false" text="Update Game Info"/>
+                <Button onAction="#deleteGame" maxWidth="Infinity" mnemonicParsing="false" text="Delete Game"/>
+            </children>
+            <BorderPane.margin>
+                <Insets right="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="93.0" prefWidth="390.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextArea fx:id="descriptionTextArea" prefWidth="${gamesTable.width}" visible="false" wrapText="true" editable="false">
+                    <HBox.margin>
+                        <Insets left="70.0" />
+                    </HBox.margin>
+                </TextArea>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
